@@ -59,8 +59,21 @@ public class Loader : MonoBehaviour
 
 		public object this[string propertyName]
 		{
-			get { return GetType().GetProperty(propertyName).GetValue(this, null); }
-			set { GetType().GetProperty(propertyName).SetValue(this, value, null); }
+			get
+			{
+				var propertyInfo = GetType().GetProperty(propertyName);
+				if (propertyInfo == null) 
+					throw new ArgumentException("No such property");	
+				return propertyInfo.GetValue(this, null);
+			}
+			set
+			{
+				var propertyInfo = GetType().GetProperty(propertyName);
+
+				if (propertyInfo == null) 
+					throw new ArgumentException("No such property");	
+				propertyInfo.SetValue(this, value, null);
+			}
 		}
 
 		public string Instructions { get; set; }
