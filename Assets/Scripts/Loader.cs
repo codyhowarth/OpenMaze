@@ -171,7 +171,7 @@ public class Loader : MonoBehaviour
 			{
 				Loader.CurrScene = 0;
 				SceneManager.LoadScene (0);
-
+ 
 			} else if (Input.GetKey (KeyCode.L)) {
 				Loader.CurrScene = 1;
 
