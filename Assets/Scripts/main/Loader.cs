@@ -4,6 +4,7 @@ using data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using wallSystem;
 using DS = data.DataSingleton;
 using C = data.Constants;
 using BS = main.BlockState;
@@ -123,7 +124,7 @@ namespace main
 			}
 			else
 			{
-				if (Input.GetKeyDown(KeyCode.Return))
+				if (PlayerController.CheckEnter())
 				{
 					LogData("", false);
 
@@ -153,7 +154,7 @@ namespace main
 		{
 			if (CurrTrial.Value.TimeAllotted > 0) return;
 
-			if (Input.GetKeyDown(KeyCode.Return) )
+			if (PlayerController.CheckEnter() )
 			{
 				Progress();
 			}			

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
-using UnityStandardAssets.ImageEffects;
 
 namespace data
 {
