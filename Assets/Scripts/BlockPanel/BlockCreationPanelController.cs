@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockCreationController : MonoBehaviour {
+public class BlockCreationPanelController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

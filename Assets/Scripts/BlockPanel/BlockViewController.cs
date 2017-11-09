@@ -7,13 +7,13 @@ using Trial=data2.Data.Trial;
 
 namespace BlockPanel
 {
-	public class ScrollViewController : MonoBehaviour
+	public class BlockViewController : MonoBehaviour
 	{	
 
 		public GameObject prefab;
 		public RectTransform content;
+
 		public List<ItemView> views = new List<ItemView>();
-		public RectTransform BlockPanel;
 
 
 		private void Start()
@@ -46,10 +46,24 @@ namespace BlockPanel
 				// Remove if toRemove flag is true.
 				if (!view.root.GetComponent<TrialPrefabController>().toRemove) continue;
 				RemoveItemView(view);
-				BlockPanel.GetComponent<BlockViewController>().addToBlock(view.t);
-				break;
 			}
 		}
+
+		public void clearAll()
+		{
+			foreach (var view in views)
+			{
+				Destroy(view.root);
+			}
+			views.Clear();
+		}
+
+		public void addToBlock(Trial t)
+		{
+			var instance = Instantiate(prefab);
+			views.Add(initializeItemView(instance, t));
+		}
+
 
 		void RemoveItemView(ItemView view)
 		{
