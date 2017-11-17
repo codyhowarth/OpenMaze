@@ -12,6 +12,6 @@ public class ClearButton : MonoBehaviour
 
 	private void OnButtonClick()
 	{
-		Debug.Log("hi");
+		Debug.Log("hi from clear");
 	}
 }

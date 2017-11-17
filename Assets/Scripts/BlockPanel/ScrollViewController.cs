@@ -45,7 +45,7 @@ namespace BlockPanel
 			{
 				// Remove if toRemove flag is true.
 				if (!view.root.GetComponent<TrialPrefabController>().toRemove) continue;
-				RemoveItemView(view);
+				// RemoveItemView(view);
 				BlockPanel.GetComponent<BlockViewController>().addToBlock(view.t);
 				break;
 			}
