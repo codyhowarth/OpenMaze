@@ -1,6 +1,9 @@
 import json
+from pprint import pprint
+
 import jsonpickle
 
+# DEPRECATED
 class Data:
 
     """
@@ -207,13 +210,16 @@ class Data:
             self.Radius = radius
             self.Height = height
 
+    def get_data_as_dict(self):
+        return json.dumps(self, default=json_default, indent=4)
 
-def jdefault(o):
+
+def json_default(o):
     return o.__dict__
 
-
+c = Data.Character(10.0, 0.5, 10.0, 100.0, 1, "out.csv", Data.Point(0.0, 0.0), 0.5, 2)
 p = Data.Pillar(1.0, 1.0, 3.0, 2.0)
-d = Data(character_data=None,
+d = Data(character_data=c,
          pickup_items=[],
          pillars=[p],
          trial_data=[],
@@ -221,6 +227,4 @@ d = Data(character_data=None,
          block_list=[],
          block_order=[])
 
-frozen = jsonpickle.encode(d)
-
-print(frozen)
+print(d.get_data_as_dict())
