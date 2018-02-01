@@ -6,7 +6,6 @@ class Window(tk.Frame):
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
         self._master = master
-        self.pack()
         self._init_window()
         self._menu_bar = MenuBar(self._master)
 

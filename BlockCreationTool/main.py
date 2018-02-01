@@ -7,6 +7,8 @@ def main():
     controller = Controller()
 
     root = tk.Tk()
+    root.resizable(width=False, height=False)
+    root.geometry()
     root.title("Block Creation Tool")
 
     controller.init_view(root)
