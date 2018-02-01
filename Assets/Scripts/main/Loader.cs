@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using data;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using wallSystem;
 using DS = data.DataSingleton;
 using C = data.Constants;
 using BS = main.BlockState;
@@ -40,7 +40,10 @@ namespace main
 		
 		private void Start () {
 			DontDestroyOnLoad(this);
-			DS.Load ();
+			
+			
+			
+			DS.Load (Constants.InputFileSrcPath);
 			Directory.CreateDirectory(C.OutputDirectory);
 			
 		
@@ -48,8 +51,7 @@ namespace main
 			Blocks = new LinkedListNode<Block>();
 			CurrTrial = new LinkedListNode<Data.Trial>();
 			var temp = Blocks;
-			
-			
+			var d = DS.GetData();
 			var cnt = 0;
 			foreach (var i in DS.GetData().BlockOrder)
 			{
@@ -124,16 +126,20 @@ namespace main
 			}
 			else
 			{
-				if (PlayerController.CheckEnter())
+				if (Input.GetKeyDown(KeyCode.Space))
 				{
-					LogData("", false);
 
 					foreach (var textBox in TextBoxes)
 					{
 						var arr = textBox.transform.GetComponentsInChildren<Text>();
 						LogData(arr[0].text + ": " + arr[1].text);
-						
-					}					
+						DS.GetData().CharacterData.OutputFile = arr[1].text + "_" + DS.GetData().CharacterData.OutputFile;
+					}				
+					
+					
+					
+					LogData("", false);
+
 					Blocks.Value.Log(); 
 
 					_inputDone = true;
@@ -143,18 +149,18 @@ namespace main
 		}
 
 
-		private bool CheckTimeOut()
-		{
-			return CurrTrial.Value.TimeAllotted > 0 
-			       && RunningTime > CurrTrial.Value.TimeAllotted;
-		}
-		
-		
-		private void HandleInput()
+			private bool CheckTimeOut()
+			{
+				return CurrTrial.Value.TimeAllotted > 0 
+					   && RunningTime > CurrTrial.Value.TimeAllotted;
+			}
+			
+			
+			private void HandleInput()
 		{
 			if (CurrTrial.Value.TimeAllotted > 0) return;
 
-			if (PlayerController.CheckEnter() )
+			if (Input.GetKeyDown(KeyCode.Return) )
 			{
 				Progress();
 			}			
@@ -162,7 +168,7 @@ namespace main
 
 		public static void LogData(string data, bool append = true)
 		{
-			using (var writer = new StreamWriter ("Assets/OutputFiles~/" + DS.GetData ().CharacterData.OutputFile, append))
+			using (var writer = new StreamWriter ("Assets/OutputFiles/" + DS.GetData ().CharacterData.OutputFile, append))
 			{
 				writer.Write (data + "\n");
 				writer.Flush ();

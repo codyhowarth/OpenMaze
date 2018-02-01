@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using data;
 using main;
 using UnityEngine;
@@ -117,21 +116,14 @@ namespace wallSystem
 
 		}
 
-		public static bool CheckEnter()
-		{
-			return true;
-		}
-		
-		
 		private void ComputeMovement()
 		{
 			//This calculates the current amount of rotation frame rate independent
-			var rotation = Input.GetTouch(0).deltaPosition.x * DS.GetData().CharacterData.RotationSpeed * Time.deltaTime;
+			var rotation = Input.GetAxis("Horizontal") * DS.GetData().CharacterData.RotationSpeed * Time.deltaTime;
 
-			
-			
+
 			//This calculates the forward speed frame rate independent
-			_moveDirection = new Vector3(0, 0, Input.GetTouch(0).deltaPosition.y);
+			_moveDirection = new Vector3(0, 0, Input.GetAxis("Vertical"));
 			_moveDirection = transform.TransformDirection(_moveDirection);
 			_moveDirection *= DS.GetData().CharacterData.MovementSpeed;
 
