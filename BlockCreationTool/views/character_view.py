@@ -7,21 +7,21 @@ class CharacterView(tk.Frame):
     def __init__(self, master=None):
         tk.Frame.__init__(self, master)
         self.master = master
-        self.fields = "cam_rotation", "height", "movement_speed", "rotation_speed", \
-            "time_to_rotate", "output_file", "character_start_pos", "character_bound", \
-            "distance_pickup"
+        self.scale_fields = {"cam_rotation", "height", "movement_speed", "rotation_speed", \
+            "time_to_rotate", "character_bound", "distance_pickup"}
         self.window = tk.Toplevel(master, padx=20, pady=20)
         self.window.title("Character Configuration")
         self.window.grid()
-        self.entries = self.createWidgets()
+        self.entries = self.createScales()
+        self.entries["output_file"] = None #TODO: finish these
+        self.entries["character_start_pos"] = None
         print(self.entries)
 
-    def createWidgets(self):
+    def createScales(self):
         entries = dict()
         i = 0
-        for field in self.fields:
+        for field in self.scale_fields:
             label = tk.Label(self.window, width=20, text=field, anchor=tk.W)
-            #entry = tk.Entry(self.window)
             entry_var = tk.StringVar()
             entry = tk.Entry(self.window, width=4, text=field, textvariable=entry_var)
             scale = tk.Scale(self.window, command= lambda v, field=field: self.u(field, v), showvalue=0, from_=0, to=200, length=200, orient=tk.HORIZONTAL)
