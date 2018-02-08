@@ -12,6 +12,7 @@ class View(tk.Frame):
         character_btn: Button
         block_btn: Button
         trial_btn: Button
+        pickup_btn: Button
     """
 
     def start_gui(self, ok=True):
