@@ -132,5 +132,3 @@ data = {
         }
     ]
 }
-
-write_to_file(data)
