@@ -14,9 +14,14 @@ class CharacterView(tk.Frame):
         self.window = tk.Toplevel(master, padx=20, pady=20)
         self.window.title("Character Configuration")
         self.window.grid()
-        self.i = 0
+        self.i = 1
+        self.back_button = tk.Button(self.window, text="")
+        self.back_button.grid(row=0, column=0)
         self.entries = self.createScales()
-        self.entries["character_start_pos"] = None
+        self.entries["CharacterStartPos"] = None
+
+
+
         print(self.entries)
 
 
