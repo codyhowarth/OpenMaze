@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Hongyu Wang\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_MorrisMaze.-1114283300.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Hongyu Wang\_Programming\MorrisMaze" t="IncludeRecursive">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Plugins" t="Include">
-          <e p="Editor" t="Include">
-            <e p="JetBrains" t="Include">
-              <e p="Unity3DRider.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-        <e p="Resources" t="Include">
+        <e p="AdditionalRes" t="Include">
           <e p="Gaia" t="Include">
             <e p="Scripts" t="Include">
               <e p="Attributes" t="Include">
@@ -333,6 +325,13 @@
             </e>
           </e>
         </e>
+        <e p="Plugins" t="Include">
+          <e p="Editor" t="Include">
+            <e p="JetBrains" t="Include">
+              <e p="Unity3DRider.cs" t="Include" />
+            </e>
+          </e>
+        </e>
         <e p="Scripts" t="Include">
           <e p="data" t="Include">
             <e p="Constants.cs" t="Include" />
@@ -341,23 +340,34 @@
             <e p="ImageLoader.cs" t="Include" />
           </e>
           <e p="main" t="Include">
-            <e p="Block.cs" t="Include" />
-            <e p="BlockState.cs" t="Include" />
             <e p="Functions.cs" t="Include" />
             <e p="Loader.cs" t="Include" />
             <e p="ProgressionTextSetter.cs" t="Include" />
           </e>
+          <e p="MazeGenerator" t="Include">
+            <e p="GenerateMazeFromFile.cs" t="Include" />
+          </e>
+          <e p="trial" t="Include">
+            <e p="AbstractTrial.cs" t="Include" />
+            <e p="CloseTrial.cs" t="Include" />
+            <e p="FieldTrial.cs" t="Include" />
+            <e p="LoadingScreenTrial.cs" t="Include" />
+            <e p="RandomTrial.cs" t="Include" />
+            <e p="ThreeDTrial.cs" t="Include" />
+            <e p="TimeoutableTrial.cs" t="Include" />
+            <e p="TrialProgress.cs" t="Include" />
+            <e p="TwoDTrial.cs" t="Include" />
+          </e>
           <e p="twoDSystem" t="Include">
             <e p="LineDrawer.cs" t="Include" />
             <e p="SpriteController.cs" t="Include" />
-            <e p="WallPointContainer.cs" t="Include" />
           </e>
           <e p="wallSystem" t="Include">
-            <e p="CounterScript.cs" t="Include" />
             <e p="GenerateGenerateWall.cs" t="Include" />
             <e p="GenerateWall.cs" t="Include" />
             <e p="PickupGenerator.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
+            <e p="RotateBlock.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -365,8 +375,11 @@
       <e p="MorrisMaze.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="packages" t="ExcludeRecursive" />
-      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
     </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2017.3/resharper-host/local/Transient/ReSharperHost/v11/SolutionCaches/_MorrisMaze.-348604248.00" t="ExcludeRecursive" />
   </component>
   <component name="RiderRiderContentModelStore">
     <excludedPaths>

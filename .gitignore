@@ -87,3 +87,10 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+*.meta
+*.xml
+*.iml
+Assets/.DS_Store
+Assets/Plugins/Editor/JetBrains/Unity3DRider.cs
+.idea/.idea.MorrisMaze/.idea/contentModel.xml
+.DS_Store
